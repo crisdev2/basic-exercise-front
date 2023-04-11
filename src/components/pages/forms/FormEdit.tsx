@@ -96,14 +96,14 @@ const FormEdit: FC<Props> = ({ form, onSubmit }) => {
             <DateTimePicker
               label="Start"
               value={dayjs(formik.values.start)}
-              onChange={(value) => formik.setFieldValue('start', value?.format('DD/MM/YYYY HH:mm:ss'))}
+              onChange={(value) => formik.setFieldValue('start', value?.format('DD-MM-YYYY HH:mm:ss'))}
             />
           </Grid>
           <Grid item sm={6}>
             <DateTimePicker
               label="End"
               value={dayjs(formik.values.end)}
-              onChange={(value) => formik.setFieldValue('end', value?.format('DD/MM/YYYY HH:mm:ss'))}
+              onChange={(value) => formik.setFieldValue('end', value?.format('DD-MM-YYYY HH:mm:ss'))}
             />
           </Grid>
           <Grid item sm={12}>
