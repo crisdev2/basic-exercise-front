@@ -3,6 +3,7 @@ import { Container as MuiContainer } from '@mui/system'
 import Breadcrumb from './Breadcrumb'
 import Content from './Content'
 import PageTitle from './PageTitle'
+import { FC } from 'react'
 
 const StyledContainer = styled(MuiContainer)`
 `
@@ -14,16 +15,20 @@ const PageTitleBox = styled.div`
   justify-content: space-between;
 `
 
-const Container = () => {
+const Container: FC<Props> = (props) => {
   return (
     <StyledContainer maxWidth={false}>
       <PageTitleBox>
         <PageTitle />
         <Breadcrumb />
       </PageTitleBox>
-      <Content />
+      <Content>{props.children}</Content>
     </StyledContainer>
   )
+}
+
+interface Props {
+  children?: React.ReactNode | string
 }
 
 export default Container

@@ -7,11 +7,11 @@ const StyledPageTitle = styled(Typography)`
 `
 
 const PageTitle = () => {
-  const loaded = false
+  const loaded = true
   return (
     loaded ?
     <StyledPageTitle variant="h4">
-      Page Title...
+      Basic Exercise
     </StyledPageTitle>
     :
     <Skeleton variant="rounded" width={250} height={24} />

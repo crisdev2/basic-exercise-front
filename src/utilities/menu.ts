@@ -26,8 +26,20 @@ const Menu: IMenu[] = [
         path: "/forms",
         icon: "article",
         active: false
-      }
-    ]
+      },
+      {
+        title: "Questions",
+        path: "/questions",
+        icon: "info",
+        active: false
+      },
+      {
+        title: "Options",
+        path: "/options",
+        icon: "check",
+        active: false
+      },
+    ],
   },
   {
     title: "Admin",

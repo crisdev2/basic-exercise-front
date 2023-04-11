@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import theme from '../../utilities/theme'
 import Container from './Container'
 import Navbar from './Navbar'
@@ -25,7 +25,7 @@ const Main = styled.div`
   }
 `
 
-const UserLayout = () => {
+const UserLayout: FC<Props> = (props) => {
   const [condensed, setCondensed] = useState<boolean>(false);
   const toggleCondensed = () => {
     setCondensed(!condensed)
@@ -35,10 +35,14 @@ const UserLayout = () => {
       <Sidebar condensed={condensed} />
       <Main data-condensed={condensed ? "": undefined}>
         <Navbar toggleCondensed={toggleCondensed} condensed={condensed} />
-        <Container />
+        <Container>{props.children}</Container>
       </Main>
     </Wrapper>
   )
+}
+
+interface Props {
+  children?: React.ReactNode;
 }
 
 export default UserLayout

@@ -96,6 +96,22 @@ export const customTheme = createTheme({
     },
   },
   components: {
+    MuiTableHead: {
+      styleOverrides: {
+        root: {
+          '& .MuiTableCell-head': {
+            fontWeight: 'bold',
+          }
+        }
+      }
+    },
+    MuiFormControl: {
+      styleOverrides: {
+        root: {
+          width: '100%',
+        }
+      }
+    },
     MuiListSubheader: {
       styleOverrides: {
         root: {

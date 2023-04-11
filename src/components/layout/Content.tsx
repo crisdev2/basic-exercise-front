@@ -1,17 +1,18 @@
 import styled from '@emotion/styled'
 import { Grid, Skeleton } from '@mui/material'
+import { FC } from 'react'
 
 const StyledContent = styled.div`
 `
 
-const Content = () => {
-  const loaded = false
+const Content: FC<Props> = (props) => {
+  const loaded = true
   return (
     <StyledContent>
       {
         loaded ? 
         <>
-          <>Layout content...</>
+          {props.children}
         </>
         :
         <>
@@ -27,6 +28,10 @@ const Content = () => {
       }
     </StyledContent>
   )
+}
+
+interface Props {
+  children?: React.ReactNode | string
 }
 
 export default Content

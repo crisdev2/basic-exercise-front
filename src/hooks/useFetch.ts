@@ -1,10 +1,16 @@
 import axios, { AxiosError } from 'axios'
-import { useEffect, useState } from 'react'
+import { DependencyList, useEffect, useState } from 'react'
 
 export const useFetch = (path: string) => {
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState<null | AxiosError>(null)
   const [loaded, setLoaded] = useState<boolean>(false)
+  const [lastRequest, setLastRequest] = useState<number>(Date.now())
+
+  const handleReload = () => {
+    setLastRequest(Date.now())
+  }
+
   useEffect(() => {
     const abortController = new AbortController()
     const fetchData = async () => {
@@ -29,7 +35,7 @@ export const useFetch = (path: string) => {
       setLoaded(false)
       return abortController.abort()
     }
-  }, [path])
+  }, [lastRequest])
 
-  return { data, error, loaded }
+  return { data, error, loaded, handleReload }
 }
